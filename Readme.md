@@ -1,3 +1,5 @@
+![Banner](https://files.codingninjas.in/article_images/digital-clock-using-c-0-1652103990.jpg)
+
 ---
 
 # ⏰ ESP32 Time, Date, and Day Display on OLED
@@ -8,20 +10,23 @@ Welcome to the ESP32 Time, Date, and Day Display project! This project uses an E
 
 ## 📝 Table of Contents
 
-- [✨ Features](#-features)
-- [🛠️ Requirements](#-requirements)
-- [📦 Libraries Installation](#-libraries-installation)
-- [🔌 Hardware Connections](#-hardware-connections)
-- [🚀 Getting Started](#-getting-started)
-- [📝 Code Explanation](#-code-explanation)
-  - [Headers and Bitmap Animation](#Headers-and-Bitmap-Animation)
-  - [Wi-Fi Setup](#wi-fi-setup)
-  - [Display Initialization](#display-initialization)
-  - [Time Fetching and Display](#time-fetching-and-display)
-  - [Month and Day Helper Functions](#month-and-day-helper-functions)
-- [🎨 Animation Effects](#-animation-effects)
-- [🔧 Troubleshooting](#-troubleshooting)
-- [🙌 Acknowledgments](#-acknowledgments)
+- [⏰ ESP32 Time, Date, and Day Display on OLED](#-esp32-time-date-and-day-display-on-oled)
+  - [📝 Table of Contents](#-table-of-contents)
+  - [✨ Features](#-features)
+  - [🛠️ Requirements](#️-requirements)
+  - [📦 Libraries Installation](#-libraries-installation)
+  - [🔌 Hardware Connections](#-hardware-connections)
+  - [🚀 Getting Started](#-getting-started)
+  - [📝 Code Explanation](#-code-explanation)
+    - [Headers and Bitmap Animation](#headers-and-bitmap-animation)
+    - [Wi-Fi Setup](#wi-fi-setup)
+    - [Display Initialization](#display-initialization)
+    - [Time Fetching and Display](#time-fetching-and-display)
+    - [Month and Day Helper Functions](#month-and-day-helper-functions)
+  - [🎨 Animation Effects](#-animation-effects)
+    - [Wifi Animation](#wifi-animation)
+  - [🔧 Troubleshooting](#-troubleshooting)
+  - [🙌 Acknowledgments](#-acknowledgments)
 
 ## ✨ Features
 
