@@ -12,8 +12,8 @@
  
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire, -1); 
 
-const char* ssid = "Shruthi PG_2.4G main"; 
-const char* password = "9663734906";
+const char* ssid = "SSID Name"; //Write your own wifi name
+const char* password = "SSID Password"; //Write your wifi password
  
 int GMTOffset = 19800;  // 5 hours * 60 minutes/hour + 30 minutes = 19800 seconds
 int daylightOffset = 0;  // Replace with your daylight savings offset in seconds
