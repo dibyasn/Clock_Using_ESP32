@@ -1,4 +1,4 @@
-![Banner](https://files.codingninjas.in/article_images/digital-clock-using-c-0-1652103990.jpg)
+![Banner](https://user-images.githubusercontent.com/29798155/115163471-c12d4080-a0c2-11eb-87cb-915e6fd4d581.gif)
 
 ---
 
