@@ -21,7 +21,6 @@ Welcome to the ESP32 Time, Date, and Day Display project! This project uses an E
   - [Month and Day Helper Functions](#month-and-day-helper-functions)
 - [🎨 Animation Effects](#-animation-effects)
 - [🔧 Troubleshooting](#-troubleshooting)
-- [📝 License](#-license)
 - [🙌 Acknowledgments](#-acknowledgments)
 
 ## ✨ Features
@@ -74,8 +73,8 @@ Install the required libraries through the Arduino IDE Library Manager:
 
 1. **Clone or Download the Project**:
     ```sh
-    git clone https://github.com/yourusername/esp32-oled-clock.git
-    cd esp32-oled-clock
+    git clone https://github.com/dibyasn/Digital_Clock.git
+    cd Digital_Clock
     ```
 
 2. **Open the Code in Arduino IDE**:
@@ -220,7 +219,7 @@ This animation shows wifi while connecting to internet:
   display.display();
   frame = (frame + 1) % FRAME_COUNT;
 ```
-
+[Animatated Icons](https://animator.wokwi.com/)
 
 ## 🔧 Troubleshooting
 
@@ -228,9 +227,6 @@ This animation shows wifi while connecting to internet:
 - Check the serial monitor for error messages.
 - Verify that the correct board and port are selected in the Arduino IDE.
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙌 Acknowledgments
 
