@@ -1,6 +1,7 @@
 <p align="center">
-    <img src="https://github.com/dibyasn/Digital_Clock/assets/42934757/b221a2f2-4239-4215-8b91-4830a95bf99d" alt="Analog Clock">
+    <img src="https://github.com/dibyasn/Digital_Clock/assets/42934757/b221a2f2-4239-4215-8b91-4830a95bf99d" alt="Analog Clock" style="width: 150px;">
 </p>
+
 
 ---
 
@@ -20,7 +21,7 @@ Welcome to the ESP32 Time, Date, and Day Display project! This project uses an E
   - [🔌 Hardware Connections](#-hardware-connections)
   - [🚀 Getting Started](#-getting-started)
   - [📝 Code Explanation](#-code-explanation)
-    - [Headers and Bitmap Animation](#headers-and-bitmap-animation)
+    - [Declaration and Bitmap Animation](#declaration-and-bitmap-animation)
     - [Display Initialization](#display-initialization)
     - [Wi-Fi Setup](#wi-fi-setup)
     - [🛜 Wifi Animation](#-wifi-animation)
@@ -84,7 +85,7 @@ Install the required libraries through the Arduino IDE Library Manager:
     ```
 
 2. **Open the Code in Arduino IDE**:
-    Open `esp32-oled-clock.ino` in the Arduino IDE.
+    Open `Digital_Clock.ino` in the Arduino IDE.
 
 3. **Configure Wi-Fi and Timezone**:
     Update the following lines with your Wi-Fi credentials and desired timezone offset:
@@ -100,7 +101,7 @@ Install the required libraries through the Arduino IDE Library Manager:
 
 ## 📝 Code Explanation
 
-### Headers and Bitmap Animation
+### Declaration and Bitmap Animation
 
 Let's dive into the code and understand how it works.
 
@@ -256,4 +257,14 @@ Representations for Time, Date and day:
 - [Adafruit GFX Library](https://github.com/adafruit/Adafruit-GFX-Library)
 - [Adafruit SSD1306 Library](https://github.com/adafruit/Adafruit_SSD1306)
 
+<p align="center">
+    <img src="https://64.media.tumblr.com/tumblr_lp0f2fIhnF1qa2ip8o1_1280.gif" alt="Thank You">
+</p>
+
 ---
+
+Feel free to contribute, report issues, or suggest enhancements. Happy coding! 🚀
+
+<p align="center">
+    <a href="https://github.com/dibyasn/Analog_clock"><img src="https://img.icons8.com/color/48/000000/github.png" alt="Contribute Icon"></a>
+</p>
