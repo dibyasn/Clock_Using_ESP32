@@ -1,4 +1,6 @@
-![Banner](https://user-images.githubusercontent.com/29798155/115163471-c12d4080-a0c2-11eb-87cb-915e6fd4d581.gif)
+<p align="center">
+    <img src="https://github.com/dibyasn/Digital_Clock/assets/42934757/b221a2f2-4239-4215-8b91-4830a95bf99d" alt="Analog Clock">
+</p>
 
 ---
 
