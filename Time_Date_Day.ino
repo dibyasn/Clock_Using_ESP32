@@ -12,8 +12,8 @@
  
 Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire, -1); 
 
-const char* ssid = "SSID Name"; //Write your own wifi name
-const char* password = "SSID Password"; //Write your wifi password
+const char* ssid = "Hotspot"; 
+const char* password = "87654321";
  
 int GMTOffset = 19800;  // 5 hours * 60 minutes/hour + 30 minutes = 19800 seconds
 int daylightOffset = 0;  // Replace with your daylight savings offset in seconds
@@ -99,92 +99,39 @@ void loop() {
   display.setTextSize(2);
   display.setTextColor(WHITE);
 
+  // Format time
+  char timeStr[9];  // HH:MM:SS
+  snprintf(timeStr, sizeof(timeStr), "%02d:%02d:%02d", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+  
   // Time
-  display.setCursor(15, 0);
-  display.print(timeinfo->tm_hour);
-  display.print(":");
-  if( timeinfo->tm_min < 10)
-    display.print("0");
-  display.print(timeinfo->tm_min);
-  display.print(":");
-  if( timeinfo->tm_sec < 10)
-    display.print("0");
-  display.println(timeinfo->tm_sec);
+  int16_t x1, y1;
+  uint16_t w, h;
+  display.getTextBounds(timeStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 0);
+  display.print(timeStr);
+
+  // Format date
+  char dateStr[12];  // DD MMM YYYY
+  const char* months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+  snprintf(dateStr, sizeof(dateStr), "%02d %s %04d", timeinfo->tm_mday, months[timeinfo->tm_mon], 1900 + timeinfo->tm_year);
 
   // Date
-  display.setTextSize(2);
-  display.setCursor(5, 25);
-  display.print(timeinfo->tm_mday);
-  display.print(" ");
-  switch(timeinfo->tm_mon + 1) {
-    case 1:
-      display.print("Jan");
-      break;
-    case 2:
-      display.print("Feb");
-      break;
-    case 3:
-      display.print("Mar");
-      break;
-    case 4:
-      display.print("Apr");
-      break;
-    case 5:
-      display.print("May");
-      break;
-    case 6:
-      display.print("Jun");
-      break;
-    case 7:
-      display.print("Jul");
-      break;
-    case 8:
-      display.print("Aug");
-      break;
-    case 9:
-      display.print("Sep");
-      break;
-    case 10:
-      display.print("Oct");
-      break;
-    case 11:
-      display.print("Nov");
-      break;
-    case 12:
-      display.print("Dec");
-      break;
-  }
-  display.print(" ");
-  display.println(1900 + timeinfo->tm_year);
+  display.setTextSize(1);
+  display.getTextBounds(dateStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 25);
+  display.print(dateStr);
+
+  // Format day
+  const char* days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+  const char* dayStr = days[timeinfo->tm_wday];
 
   // Day
   display.setTextSize(2);
-  display.setCursor(30, 50);
-  switch(timeinfo->tm_wday) {
-    case 0:
-      display.print("Sunday");
-      break;
-    case 1:
-      display.print("Monday");
-      break;
-    case 2:
-      display.print("Tuesday");
-      break;
-    case 3:
-      display.print("Wednesay");
-      break;
-    case 4:
-      display.print("Thursday");
-      break;
-    case 5:
-      display.print("Friday");
-      break;
-    case 6:
-      display.print("Saturday");
-      break;
-  }
+  display.getTextBounds(dayStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 50);
+  display.print(dayStr);
 
   display.display();
- 
-  delay(1000); 
+
+  delay(1000);
 }
