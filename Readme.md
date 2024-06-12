@@ -196,7 +196,6 @@ void loop() {
   Serial.print(":");
   Serial.println(timeinfo->tm_sec);
  ///.....//
-}
 ```
 
 ### Formatting and Printing in Display
