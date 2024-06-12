@@ -21,12 +21,11 @@ Welcome to the ESP32 Time, Date, and Day Display project! This project uses an E
   - [🚀 Getting Started](#-getting-started)
   - [📝 Code Explanation](#-code-explanation)
     - [Headers and Bitmap Animation](#headers-and-bitmap-animation)
-    - [Wi-Fi Setup](#wi-fi-setup)
     - [Display Initialization](#display-initialization)
+    - [Wi-Fi Setup](#wi-fi-setup)
+    - [🛜 Wifi Animation](#-wifi-animation)
     - [Time Fetching and Display](#time-fetching-and-display)
-    - [Month and Day Helper Functions](#month-and-day-helper-functions)
-  - [🎨 Animation Effects](#-animation-effects)
-    - [Wifi Animation](#wifi-animation)
+    - [Formatting and Printing in Display](#formatting-and-printing-in-display)
   - [🔧 Troubleshooting](#-troubleshooting)
   - [🙌 Acknowledgments](#-acknowledgments)
 
@@ -137,6 +136,20 @@ const byte PROGMEM frames[][288] = {
 };
 ```
 
+### Display Initialization
+
+The display is initialized, and a connection status message is shown:
+
+```cpp
+if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
+  Serial.println(F("SSD1306 allocation failed"));
+  for(;;);
+}
+display.clearDisplay();
+display.setTextSize(1); 
+display.setCursor(0,0);
+display.setTextColor(WHITE);
+```
 
 
 ### Wi-Fi Setup
@@ -155,21 +168,16 @@ void setup() {
   configTime(GMTOffset, daylightOffset, "pool.ntp.org", "time.nist.gov");
 }
 ```
+### 🛜 Wifi Animation 
 
-### Display Initialization
-
-The display is initialized, and a connection status message is shown:
+This animation shows wifi while connecting to internet:
 
 ```cpp
-if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { 
-  Serial.println(F("SSD1306 allocation failed"));
-  for(;;);
-}
-display.clearDisplay();
-display.setTextSize(1); 
-display.setCursor(0,0);
-display.setTextColor(WHITE);
+ display.drawBitmap(40, 8, frames[frame], FRAME_WIDTH, FRAME_HEIGHT, 1);
+  display.display();
+  frame = (frame + 1) % FRAME_COUNT;
 ```
+[Animatated Icons](https://animator.wokwi.com/)
 
 ### Time Fetching and Display
 
@@ -180,53 +188,61 @@ void loop() {
   time_t rawtime = time(nullptr);
   struct tm* timeinfo = localtime(&rawtime);
 
-  // Print time to serial
-  Serial.printf("Time: %02d:%02d:%02d\n", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
-
-  // Update OLED display
-  display.clearDisplay();
-  display.setTextSize(2);
-  display.setCursor(15, 0);
-  display.printf("%02d:%02d:%02d", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
-  display.setCursor(5, 25);
-  display.printf("%02d %s %d", timeinfo->tm_mday, monthStr(timeinfo->tm_mon), 1900 + timeinfo->tm_year);
-  display.setCursor(30, 50);
-  display.printf("%s", dayStr(timeinfo->tm_wday));
-  display.display();
-  delay(1000); 
+  Serial.print("Time: ");
+  Serial.print(timeinfo->tm_hour);
+  Serial.print(":");
+  Serial.print(timeinfo->tm_min);
+  Serial.print(":");
+  Serial.println(timeinfo->tm_sec);
+ ///.....//
 }
 ```
 
-### Month and Day Helper Functions
+### Formatting and Printing in Display
 
-Helper functions provide string representations for months and days:
+Representations for Time, Date and day:
 
 ```cpp
-const char* monthStr(int month) {
+  //.....//
+
+  // Format time
+  char timeStr[9];  // HH:MM:SS
+  snprintf(timeStr, sizeof(timeStr), "%02d:%02d:%02d", timeinfo->tm_hour, timeinfo->tm_min, timeinfo->tm_sec);
+  
+  // Time
+  int16_t x1, y1;
+  uint16_t w, h;
+  display.getTextBounds(timeStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 0);
+  display.print(timeStr);
+
+  // Format date
+  char dateStr[12];  // DD MMM YYYY
   const char* months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-  return months[month];
-}
+  snprintf(dateStr, sizeof(dateStr), "%02d %s %04d", timeinfo->tm_mday, months[timeinfo->tm_mon], 1900 + timeinfo->tm_year);
 
-const char* dayStr(int day) {
+  // Date
+  display.setTextSize(1);
+  display.getTextBounds(dateStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 25);
+  display.print(dateStr);
+
+  // Format day
   const char* days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-  return days[day];
+  const char* dayStr = days[timeinfo->tm_wday];
+
+  // Day
+  display.setTextSize(2);
+  display.getTextBounds(dayStr, 0, 0, &x1, &y1, &w, &h);
+  display.setCursor((128 - w) / 2, 50);
+  display.print(dayStr);
+
+  display.display();
+
+  delay(1000);
 }
 ```
 
-## 🎨 Animation Effects
-
-Enhance your display with smooth transitions and animations:
-
-### Wifi Animation
-
-This animation shows wifi while connecting to internet:
-
-```cpp
- display.drawBitmap(40, 8, frames[frame], FRAME_WIDTH, FRAME_HEIGHT, 1);
-  display.display();
-  frame = (frame + 1) % FRAME_COUNT;
-```
-[Animatated Icons](https://animator.wokwi.com/)
 
 ## 🔧 Troubleshooting
 
