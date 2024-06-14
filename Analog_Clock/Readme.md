@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/dibyasn/Analog_Clock/assets/42934757/f9ed98ba-2929-4d4c-b8a2-0b8bf2326f7a" alt="Analog Clock" style="width: 150px;">
+    <img src="https://github.com/dibyasn/Clock_Using_ESP32/assets/42934757/3cb31030-3788-45b6-8154-801c02f872de" alt="Analog Clock" style="width: 150px;">
 </p>
 
 # Analog Clock using OLED and WiFi ⏰
@@ -47,8 +47,7 @@ This project showcases how to create a real-time clock using an ESP32 and a 4-pi
 ## 🚀 Setup Instructions
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/dibyasn/Analog_clock.git
-cd Analog_Clock
+git clone https://github.com/dibyasn/Clock_Using_ESP32.git
 ```
 
 ### 2. Install Required Libraries

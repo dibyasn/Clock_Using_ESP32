@@ -80,8 +80,7 @@ Install the required libraries through the Arduino IDE Library Manager:
 
 1. **Clone or Download the Project**:
     ```sh
-    git clone https://github.com/dibyasn/Digital_Clock.git
-    cd Digital_Clock
+    git clone https://github.com/dibyasn/Clock_Using_ESP32.git
     ```
 
 2. **Open the Code in Arduino IDE**:
