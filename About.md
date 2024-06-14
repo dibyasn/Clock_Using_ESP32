@@ -32,7 +32,7 @@ This repository features two projects that demonstrate how to create real-time c
 
 This project uses an ESP32 board to connect to WiFi and display the current time on a 0.96" OLED display using I2C communication. The clock synchronizes time over WiFi using NTP (Network Time Protocol) and displays it on the OLED screen with a graphical clock face.
 
-For detailed setup instructions, circuit diagrams, and code explanations, please refer to the [Analog Clock Project README](Analog_Clock/README.md).
+For detailed setup instructions, circuit diagrams, and code explanations, please refer to the [Analog Clock Project README](https://github.com/dibyasn/Clock_Using_ESP32/blob/main/Analog_Clock/Readme.md).
 
 ### 2. Digital Clock using ESP32
 
@@ -42,7 +42,7 @@ For detailed setup instructions, circuit diagrams, and code explanations, please
 
 This project uses an ESP32 microcontroller to fetch the current time from the internet and display it on an SSD1306 OLED screen. The clock displays the current time, date, and day of the week, with smooth transitions and updates.
 
-For detailed setup instructions, circuit diagrams, and code explanations, please refer to the [Digital Clock Project README](Time_Date_Day/README.md).
+For detailed setup instructions, circuit diagrams, and code explanations, please refer to the [Digital Clock Project README](https://github.com/dibyasn/Clock_Using_ESP32/blob/main/Time_Date_Day/Readme.md).
 
 ## Getting Started
 
